@@ -171,7 +171,7 @@ newgrp docker
             command_create_x11 = "sudo docker run -dit --name={} -v {}:{} -v /tmp/.X11-unix:/tmp/.X11-unix {} -v /dev/dri:/dev/dri -e DISPLAY=unix$DISPLAY -w {}  {}".format(
                     container_name,home,home,use_dri,home,RosVersions.get_image(name))
         else:
-            command_create_x11 = "sudo docker run -dit  -v {}:{} -v /tmp/.X11-unix:/tmp/.X11-unix {} -v /dev/dri:/dev/dri --device /dev/snd -e DISPLAY=unix$DISPLAY -w {}  {}".format(
+            command_create_x11 = "sudo docker run -dit  -v {}:{} -v /tmp/.X11-unix:/tmp/.X11-unix {} -v /dev/dri:/dev/dri -e DISPLAY=unix$DISPLAY -w {}  {}".format(
                     home,home,use_dri,home,RosVersions.get_image(name))
 
         CmdTask(command_create_x11,os_command=True).run()
